@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تفاصيل الطلب</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>تم إرسال الطلب بنجاح!</h1>
+    </header>
+    <div class="book-details">
+        <img id="bookImage" src="" alt="صورة الكتاب">
+        <div class="card-details">
+            <p><strong>العنوان:</strong> <span id="bookTitle"></span></p>
+        <p><strong>التصنيف:</strong> <span id="bookCategory"></span></p>
+        <p><strong>السعر:</strong> <span id="bookPrice"></span></p>
+        <p><strong>دار النشر:</strong> <span id="bookPublisher"></span></p>
+        <p><strong>الوصف:</strong> <span id="bookSummary"></span></p>
+        <p><strong>أهم القصص:</strong> <span id="bookStories"></span></p>
+        </div>
+    </div>
+    <footer>
+        <a href="aboutUs.html">من نحن</a> | <a href="books.html">الكتب</a> | <a href="home.html">الصفحة الرئيسية</a>
+    </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // استرجاع بيانات الكتاب من localStorage
+            const selectedBook = JSON.parse(localStorage.getItem("selectedBook"));
+
+            if (selectedBook) {
+                // عرض تفاصيل الكتاب
+                document.getElementById("bookImage").src = selectedBook.image;
+                document.getElementById("bookTitle").textContent = selectedBook.title;
+                document.getElementById("bookCategory").textContent = selectedBook.category;
+                document.getElementById("bookPrice").textContent = selectedBook.price;
+                document.getElementById("bookPublisher").textContent = selectedBook.publisher;
+                document.getElementById("bookSummary").textContent = selectedBook.summary;
+                document.getElementById("bookStories").textContent = selectedBook.stories.join(", ");
+            } else {
+                // إذا لم يتم العثور على بيانات الكتاب
+                document.body.innerHTML = "<h1>خطأ: لم يتم العثور على تفاصيل الطلب.</h1>";
+            }
+        });
+    </script>
+</body>
+</html>

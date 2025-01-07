@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الكتب</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.min.js"></script>
+
+    <script src="myFunctions.js"></script>
+</head>
+<body>
+    <header>
+        <h1>الكتب المتاحة</h1>
+    </header>
+    <section>
+        <table id="booksTable">
+            <thead>
+                <tr>
+                    <th>ISBN</th>
+                    <th>العنوان</th>
+                    <th>السعر</th>
+                    <th>إظهار التفاصيل</th>
+                    <th>طلب الكتاب</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- from JS -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Overlay -->
+    <div id="overlay"></div>
+
+    <!-- modal -->
+    <div id="orderForm" class="form-container">
+        <h2 id="formTitle">طلب الكتاب: <span id="bookTitle"></span></h2>
+        <form id="bookOrderForm">
+            <div class="input-group">
+                <label for="fullName">الاسم الكامل:</label>
+                <input type="text" id="fullName" name="fullName" >
+                <span class="validation-message" id="fullNameError"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="nationalId">الرقم الوطني:</label>
+                <input type="text" id="nationalId" name="nationalId" required>
+                <span class="validation-message" id="nationalIdError"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="birthDate">تاريخ الولادة:</label>
+                <input type="text" id="birthDate" placeholder="dd-mm-yyyy" >
+                
+                <span class="validation-message" id="birthDateError"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="phoneNumber">رقم الموبايل:</label>
+                <input type="text" id="phoneNumber" name="phoneNumber">
+                <span class="validation-message" id="phoneNumberError"></span>
+            </div>
+
+            <div class="input-group">
+                <label for="email">البريد الإلكتروني:</label>
+                <input type="email" id="email" name="email">
+                <span class="validation-message" id="emailError"></span>
+            </div>
+
+            <button type="submit">إرسال</button>
+            <button type="button" id="closeForm">إغلاق</button>
+        </form>
+    </div>
+
+    <footer>
+        <a href="home.html">الصفحة الرئيسية</a> | <a href="aboutUs.html">من نحن</a>
+    </footer>
+</body>
+</html>
